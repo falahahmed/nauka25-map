@@ -1,0 +1,18 @@
+{
+    "programs": [
+        {
+            "name": "Puzzle Making",
+            "venue": "CT Block",
+            "day": "Day 1",
+            "room": "Room 1",
+            "time": "7:00 PM"
+        },
+        {
+            "name": "Python Workshop",
+            "venue": "Workshop Block",
+            "day": "Day 1",
+            "room": "Room 2",
+            "time": "10:00 AM"
+        }
+    ]
+}
