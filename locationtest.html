@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaflet Map with GeoJSON Layers and Live Location</title>
+    <title>NAUKA MAP</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
     <link
@@ -31,7 +31,7 @@
             overflow: hidden;
             margin-bottom: 20px;
             border: 2px solid #2d3c59;
-            background-color: #222222;
+            background-color: #ebe7e7;
         }
 
         /* Info container (bottom) */
@@ -53,7 +53,7 @@
             background: transparent;
             border: none;
             box-shadow: none;
-            color: white;
+            color: black;
             font-size: 10px;
             white-space: nowrap;
         }
@@ -184,18 +184,19 @@
 
         // Load all GeoJSON files and add them to the map
         Promise.all([
-            addGeoJSONLayer('auditorium.geojson', { color: '#90d5ff', fillColor: '#90d5ff', weight: 1 }, 'name'),
-            addGeoJSONLayer('blocks.geojson', { color: '#e8e9ed', weight: 1 }, 'name'),
+            addGeoJSONLayer('auditorium.geojson', { color: '#635382', fillColor: '#cbcdd2', weight: 1, }, 'name'),
+            addGeoJSONLayer('blocks.geojson', { color: '#635382', fillColor: '#cbcdd2', weight: 1 }, 'name'),
             addGeoJSONLayer('ground.geojson', {
-                color: '#7ce87c',
-                weight: 0,
-                fillColor: '#7ce87c',
+                color: '#635382',
+                weight: 1,
+                fillColor: '#cbcdd2',
                 opacity: 1
             }, 'name').then(layer => {
                 groundLayer = layer;
             }),
             addGeoJSONLayer('inroad.geojson', {
-                color: '#aab9c9',
+                color: '#7b8c9c',
+                fillColor: '#cbcdd2',
                 weight: 5,
                 opacity: 1,
                 dashArray: null,
