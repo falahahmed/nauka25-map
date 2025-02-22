@@ -1,18 +1,172 @@
 {
     "programs": [
         {
-            "name": "Puzzle Making",
-            "venue": "CT Block",
+            "name": "Tech Quiz",
+            "venue": "Auditorium",
             "day": "Day 1",
-            "room": "Room 1",
-            "time": "7:00 PM"
+            "room": "Room 101",
+            "time": "09:45-10:15"
         },
         {
-            "name": "Python Workshop",
+            "name": "Seminar Talk",
+            "venue": "CT Block",
+            "day": "Day 1",
+            "room": "Room 202",
+            "time": "10:15-11:45"
+        },
+        {
+            "name": "Bomb Diffusing",
+            "venue": "Old Block",
+            "day": "Day 1",
+            "room": "Room 303",
+            "time": "10:30-11:00"
+        },
+        {
+            "name": "Project Exhibition",
             "venue": "Workshop Block",
             "day": "Day 1",
-            "room": "Room 2",
-            "time": "10:00 AM"
+            "room": "Room 404",
+            "time": "10:00-01:00"
+        },
+        {
+            "name": "Pattern Printing",
+            "venue": "EL EC Block",
+            "day": "Day 1",
+            "room": "Room 505",
+            "time": "11:00-11:30"
+        },
+        {
+            "name": "Debugging And Coding",
+            "venue": "FD Block",
+            "day": "Day 1",
+            "room": "Room 606",
+            "time": "11:30-12:00"
+        },
+        {
+            "name": "Rubik's Cube",
+            "venue": "Canteen",
+            "day": "Day 1",
+            "room": "Room 707",
+            "time": "01:00-01:30"
+        },
+        {
+            "name": "Movie Guess",
+            "venue": "Auditorium",
+            "day": "Day 1",
+            "room": "Room 101",
+            "time": "01:30-02:00"
+        },
+        {
+            "name": "Photography",
+            "venue": "CT Block",
+            "day": "Day 1",
+            "room": "Room 202",
+            "time": "02:00-02:30"
+        },
+        {
+            "name": "Cook Without Fire",
+            "venue": "Old Block",
+            "day": "Day 1",
+            "room": "Room 303",
+            "time": "03:15-03:45"
+        },
+        {
+            "name": "Crossbar Challenge",
+            "venue": "Workshop Block",
+            "day": "Day 1",
+            "room": "Room 404",
+            "time": "03:45-04:30"
+        },
+        {
+            "name": "Medical Camp",
+            "venue": "EL EC Block",
+            "day": "Day 1",
+            "room": "Room 505",
+            "time": "09:00-02:00"
+        },
+        {
+            "name": "Attire Spectra Fashion Show",
+            "venue": "Auditorium",
+            "day": "Day 2",
+            "room": "Room 101",
+            "time": "10:00-10:45"
+        },
+        {
+            "name": "Line Follower",
+            "venue": "CT Block",
+            "day": "Day 2",
+            "room": "Room 202",
+            "time": "10:00-10:45"
+        },
+        {
+            "name": "e Football",
+            "venue": "Old Block",
+            "day": "Day 2",
+            "room": "Room 303",
+            "time": "09:00-12:15"
+        },
+        {
+            "name": "Web Designing",
+            "venue": "Workshop Block",
+            "day": "Day 2",
+            "room": "Room 404",
+            "time": "10:45-11:30"
+        },
+        {
+            "name": "Circuit Debugging And Making",
+            "venue": "EL EC Block",
+            "day": "Day 2",
+            "room": "Room 505",
+            "time": "11:30-12:00"
+        },
+        {
+            "name": "Arduino Prototyping",
+            "venue": "FD Block",
+            "day": "Day 2",
+            "room": "Room 606",
+            "time": "12:00-12:30"
+        },
+        {
+            "name": "Seminar Paper Presentation",
+            "venue": "Canteen",
+            "day": "Day 2",
+            "room": "Room 707",
+            "time": "01:30-02:00"
+        },
+        {
+            "name": "BBMI",
+            "venue": "Auditorium",
+            "day": "Day 2",
+            "room": "Room 101",
+            "time": "01:30-03:00"
+        },
+        {
+            "name": "Mehandi",
+            "venue": "CT Block",
+            "day": "Day 2",
+            "room": "Room 202",
+            "time": "02:00-02:30"
+        },
+        {
+            "name": "Arm Wrestling",
+            "venue": "Old Block",
+            "day": "Day 2",
+            "room": "Room 303",
+            "time": "02:30-02:45"
+        },
+        {
+            "name": "Treasure Hunt",
+            "venue": "Workshop Block",
+            "day": "Day 2",
+            "room": "Room 404",
+            "time": "02:45-03:45"
+        },
+        {
+            "name": "Musical Live",
+            "venue": "EL EC Block",
+            "day": "Day 2",
+            "room": "Room 505",
+            "time": "03:45-05:30"
         }
     ]
 }
