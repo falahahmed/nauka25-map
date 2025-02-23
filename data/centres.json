@@ -1,0 +1,39 @@
+{
+    "locations": [
+        {
+            "name": "nhblock",
+            "longitude": 75.887933,
+            "latitude": 11.109453
+        },
+        {
+            "name": "Auditorium",
+            "longitude": 75.887567,
+            "latitude": 11.109350
+        },
+        {
+            "name": "Admin Block",
+            "longitude": 75.888978,
+            "latitude": 11.110071
+        },
+        {
+            "name": "H Block",
+            "longitude": 75.888496,
+            "latitude": 11.110150
+        },
+        {
+            "name": "Workshop Block",
+            "longitude": 75.887998,
+            "latitude": 11.110349
+        },
+        {
+            "name": "Canteen",
+            "longitude": 75.887560,
+            "latitude": 11.110630
+        },
+        {
+            "name": "FD Block",
+            "longitude": 75.887372,
+            "latitude": 11.108980
+        }
+    ]
+}

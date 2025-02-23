@@ -6,12 +6,12 @@
             "latitude": 11.109350
         },
         {
-            "name": "CT Block",
+            "name": "Admin Block",
             "longitude": 75.888978,
             "latitude": 11.110071
         },
         {
-            "name": "Old Block",
+            "name": "H Block",
             "longitude": 75.888496,
             "latitude": 11.110150
         },
@@ -26,7 +26,7 @@
             "latitude": 11.110630
         },
         {
-            "name": "EL EC Block",
+            "name": "NH Block",
             "longitude": 75.887933,
             "latitude": 11.109453
         },

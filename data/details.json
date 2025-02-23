@@ -1,0 +1,372 @@
+{
+    "programs": [
+        {
+            "day": "Day 1",
+            "program": "Medical Camp",
+            "building": "Auditorium",
+            "roomNo": "",
+            "roomName": "College Auditorium",
+            "time": "9:30AM – 2:00PM"
+        },
+        {
+            "day": "Day 1",
+            "program": "Registration",
+            "building": "Admin Block",
+            "roomNo": "A001",
+            "roomName": "Entrance",
+            "time": "09:15 – 10:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Interview Candidates Launch",
+            "building": "Admin Block",
+            "roomNo": "A004",
+            "roomName": "Infront of Library Hall",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Company 1 Interview",
+            "building": "Admin Block",
+            "roomNo": "A005",
+            "roomName": "Library Hall",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Company 2 Interview",
+            "building": "Admin Block",
+            "roomNo": "A006",
+            "roomName": "Library Hall",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Company 3 Interview",
+            "building": "Admin Block",
+            "roomNo": "A007",
+            "roomName": "Library Hall",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Company 4 Interview",
+            "building": "Admin Block",
+            "roomNo": "A102",
+            "roomName": "CT Class Room",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Company 5 Interview",
+            "building": "Admin Block",
+            "roomNo": "A103",
+            "roomName": "CT Class Room",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Company 6 Interview",
+            "building": "Admin Block",
+            "roomNo": "A105a",
+            "roomName": "CT Class Room",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Company 7 Interview",
+            "building": "Admin Block",
+            "roomNo": "A105b",
+            "roomName": "CT Class Room",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Company 8 Interview",
+            "building": "Admin Block",
+            "roomNo": "A202",
+            "roomName": "CT Class Room",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Company 9 Interview",
+            "building": "Admin Block",
+            "roomNo": "A203",
+            "roomName": "CT Class Room",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "KKEM Group Discussion",
+            "building": "Admin Block",
+            "roomNo": "A204",
+            "roomName": "Computer Lab",
+            "time": "10:00 – 03:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Tech Quiz",
+            "building": "NH Block",
+            "roomNo": "N103",
+            "roomName": "EL First year Class Room",
+            "time": "09:45 – 10:45"
+        },
+        {
+            "day": "Day 1",
+            "program": "Seminar Talk (Glowsis Academy)",
+            "building": "Admin Block",
+            "roomNo": "A205",
+            "roomName": "Seminar Hall",
+            "time": "10:15 – 11:45"
+        },
+        {
+            "day": "Day 1",
+            "program": "Bomb Diffusing",
+            "building": "NH Block",
+            "roomNo": "N001",
+            "roomName": "Digital lab",
+            "time": "10:30 – 11:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Project Exhibitions Evaluation",
+            "building": "NH Block",
+            "roomNo": "N002",
+            "roomName": "CHN Lab",
+            "time": "10:00 – 01:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Pattern Printing",
+            "building": "H Block",
+            "roomNo": "H102",
+            "roomName": "Software Lab",
+            "time": "11:00 – 11:30"
+        },
+        {
+            "day": "Day 1",
+            "program": "Debugging and Coding",
+            "building": "H Block",
+            "roomNo": "H108",
+            "roomName": "Computer Lab",
+            "time": "11:30 – 12:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Rubik’s Cube",
+            "building": "NH Block",
+            "roomNo": "N104",
+            "roomName": "EC Third year Class Room",
+            "time": "01:00 – 01:30"
+        },
+        {
+            "day": "Day 1",
+            "program": "Movie Guess",
+            "building": "NH Block",
+            "roomNo": "N103",
+            "roomName": "EL First year Class Room",
+            "time": "01:30 – 02:00"
+        },
+        {
+            "day": "Day 1",
+            "program": "Photography Evaluation",
+            "building": "H Block",
+            "roomNo": "H011",
+            "roomName": "Circuit Lab",
+            "time": "02:00 – 02:30"
+        },
+        {
+            "day": "Day 1",
+            "program": "Cook Without Fire",
+            "building": "Admin Block",
+            "roomNo": "",
+            "roomName": "Center court",
+            "time": "03:15 – 03:45"
+        },
+        {
+            "day": "Day 1",
+            "program": "Crossbar Challenge",
+            "building": "College Ground",
+            "roomNo": "",
+            "roomName": "College Ground",
+            "time": "03:45 – 04:30"
+        },
+        {
+            "day": "Day 2",
+            "program": "e - Football",
+            "building": "H Block",
+            "roomNo": "H103",
+            "roomName": "Boys room",
+            "time": "09:00 – 12:15"
+        },
+        {
+            "day": "Day 2",
+            "program": "Line Follower",
+            "building": "Admin Block",
+            "roomNo": "A104",
+            "roomName": "Nauka Room",
+            "time": "10:00 – 10:45"
+        },
+        {
+            "day": "Day 2",
+            "program": "Web Designing",
+            "building": "H Block",
+            "roomNo": "H102",
+            "roomName": "Software lab",
+            "time": "10:45 – 11:30"
+        },
+        {
+            "day": "Day 2",
+            "program": "Circuit Making and Debugging",
+            "building": "H Block",
+            "roomNo": "H011",
+            "roomName": "Circuit Lab",
+            "time": "11:30 – 12:00"
+        },
+        {
+            "day": "Day 2",
+            "program": "Arduino Prototyping",
+            "building": "Admin Block",
+            "roomNo": "A009",
+            "roomName": "Tinkering Lab",
+            "time": "12:00 – 12:30"
+        },
+        {
+            "day": "Day 2",
+            "program": "Seminar Paper Presentation",
+            "building": "Admin Block",
+            "roomNo": "A205",
+            "roomName": "Seminar Hall",
+            "time": "01:30 – 02:00"
+        },
+        {
+            "day": "Day 2",
+            "program": "BGMI",
+            "building": "H Block",
+            "roomNo": "H103",
+            "roomName": "Boys Room",
+            "time": "01:30 – 03:00"
+        },
+        {
+            "day": "Day 2",
+            "program": "Mehandi",
+            "building": "Admin Block",
+            "roomNo": "A103",
+            "roomName": "CT Class Room",
+            "time": "02:00 – 02:30"
+        },
+        {
+            "day": "Day 2",
+            "program": "Arm Wrestling",
+            "building": "Admin Block",
+            "roomNo": "",
+            "roomName": "Center court",
+            "time": "02:30 – 02:45"
+        },
+        {
+            "day": "Day 2",
+            "program": "Treasure Hunt",
+            "building": "College Ground",
+            "roomNo": "",
+            "roomName": "College Ground",
+            "time": "02:45 – 03:45"
+        },
+        {
+            "day": "Day 2",
+            "program": "Department Stall Evaluation",
+            "building": "H Block",
+            "roomNo": "H001",
+            "roomName": "Old Computer Staff room",
+            "time": "10:30 – 12:15"
+        },
+        {
+            "day": "Day 2",
+            "program": "Department Stall Evaluation",
+            "building": "H Block",
+            "roomNo": "H003",
+            "roomName": "Old Block",
+            "time": "10:30 – 12:15"
+        },
+        {
+            "day": "Day 2",
+            "program": "Department Stall Evaluation",
+            "building": "H Block",
+            "roomNo": "H004",
+            "roomName": "Old Block",
+            "time": "10:30 – 12:15"
+        },
+        {
+            "day": "Day 1",
+            "program": "HAM - Amateur Radio",
+            "building": "Admin Block",
+            "roomNo": "A002",
+            "roomName": "Entrance",
+            "time": "9:30AM – 4:30PM"
+        },
+        {
+            "day": "Day 1",
+            "program": "KSEB",
+            "building": "Admin Block",
+            "roomNo": "A007",
+            "roomName": "Glass Room",
+            "time": "9:30AM – 4:30PM"
+        },
+        {
+            "day": "Day 1",
+            "program": "BSNL",
+            "building": "Admin Block",
+            "roomNo": "A101",
+            "roomName": "Glass Room",
+            "time": "9:30AM – 4:30PM"
+        },
+        {
+            "day": "Day 1",
+            "program": "FOREST",
+            "building": "Infront of Admin Block",
+            "roomNo": "",
+            "roomName": "Infront of Admin Block",
+            "time": "9:30AM – 4:30PM"
+        },
+        {
+            "day": "Day 1",
+            "program": "NSS",
+            "building": "H Block",
+            "roomNo": "",
+            "roomName": "Room Near Circuit Lab",
+            "time": "9:30AM – 4:30PM"
+        },
+        {
+            "day": "Day 1",
+            "program": "NCC",
+            "building": "H Block",
+            "roomNo": "OG4",
+            "roomName": "Right Open area",
+            "time": "9:30AM – 4:30PM"
+        },
+        {
+            "day": "Day 1",
+            "program": "GIFD",
+            "building": "H Block",
+            "roomNo": "",
+            "roomName": "Entrance",
+            "time": "9:30AM – 4:30PM"
+        },
+        {
+            "day": "Day 1",
+            "program": "Industry On Campus (IOC)",
+            "building": "H Block",
+            "roomNo": "",
+            "roomName": "Entrance",
+            "time": "9:30AM – 4:30PM"
+        },
+        {
+            "day": "Day 1",
+            "program": "Fashion Show and Musical Event",
+            "building": "Auditorium",
+            "roomNo": "",
+            "roomName": "College Auditorium",
+            "time": "9:30AM – 6:00PM"
+        }
+    ]
+}

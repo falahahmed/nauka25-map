@@ -1,0 +1,126 @@
+{
+    "type": "FeatureCollection",
+    "name": "entrance",
+    "crs": {
+        "type": "name",
+        "properties": {
+            "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+        }
+    },
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "osm_way_id": null,
+                "name": null,
+                "building": null,
+                "landuse": null,
+                "other_tags": null,
+                "rotate": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            75.888793673208042,
+                            11.110435115911576
+                        ],
+                        [
+                            75.888839919639949,
+                            11.110392128644961
+                        ],
+                        [
+                            75.888850708600998,
+                            11.110427052287047
+                        ],
+                        [
+                            75.888810390478383,
+                            11.110485380107624
+                        ],
+                        [
+                            75.888793673208042,
+                            11.110435115911576
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "osm_way_id": null,
+                "name": null,
+                "building": null,
+                "landuse": null,
+                "other_tags": null,
+                "rotate": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            75.888710227337697,
+                            11.110435818317896
+                        ],
+                        [
+                            75.888775185873754,
+                            11.110393926805134
+                        ],
+                        [
+                            75.888785750064784,
+                            11.110422556886615
+                        ],
+                        [
+                            75.88872910801949,
+                            11.110482570482361
+                        ],
+                        [
+                            75.888710227337697,
+                            11.110435818317896
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "osm_way_id": null,
+                "name": "Entrance",
+                "building": null,
+                "landuse": null,
+                "other_tags": null,
+                "rotate": false
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            75.888728208939412,
+                            11.110482120942317
+                        ],
+                        [
+                            75.888810249997135,
+                            11.110485492492629
+                        ],
+                        [
+                            75.888793167475527,
+                            11.110435144007816
+                        ],
+                        [
+                            75.888708878717551,
+                            11.110435368777853
+                        ],
+                        [
+                            75.888728208939412,
+                            11.110482120942317
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

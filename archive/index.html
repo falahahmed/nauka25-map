@@ -184,9 +184,9 @@
 
         // Load all GeoJSON files and add them to the map
         Promise.all([
-            addGeoJSONLayer('auditorium.geojson', { color: '#635382', fillColor: '#cbcdd2', weight: 1, }, 'name'),
-            addGeoJSONLayer('blocks.geojson', { color: '#635382', fillColor: '#cbcdd2', weight: 1 }, 'name'),
-            addGeoJSONLayer('ground.geojson', {
+            addGeoJSONLayer('geojson/auditorium.geojson', { color: '#635382', fillColor: '#cbcdd2', weight: 1, }, 'name'),
+            addGeoJSONLayer('geojson/blocks.geojson', { color: '#635382', fillColor: '#cbcdd2', weight: 1 }, 'name'),
+            addGeoJSONLayer('geojson/ground.geojson', {
                 color: '#635382',
                 weight: 1,
                 fillColor: '#cbcdd2',
@@ -194,7 +194,7 @@
             }, 'name').then(layer => {
                 groundLayer = layer;
             }),
-            addGeoJSONLayer('inroad.geojson', {
+            addGeoJSONLayer('geojson/inroad.geojson', {
                 color: '#7b8c9c',
                 fillColor: '#cbcdd2',
                 weight: 5,
@@ -253,7 +253,7 @@
         let programNames = [];
 
         // Fetch program names from details.json
-        fetch('details.json')
+        fetch('data/details.json')
             .then(response => response.json())
             .then(data => {
                 programNames = data.programs.map(program => program.name);
@@ -301,7 +301,7 @@
                 currentMarker = null;
             }
 
-            const detailsResponse = await fetch('details.json');
+            const detailsResponse = await fetch('data/details.json');
             const detailsData = await detailsResponse.json();
 
             const program = detailsData.programs.find(p => p.name.toLowerCase() === searchTerm);
@@ -311,7 +311,7 @@
                 return;
             }
 
-            const centresResponse = await fetch('centres.json');
+            const centresResponse = await fetch('data/centres.json');
             const centresData = await centresResponse.json();
 
             const location = centresData.locations.find(l => l.name === program.venue);

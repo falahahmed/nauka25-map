@@ -4,15 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leaflet Map with GeoJSON Layers</title>
+    <title>NAUKA MAP</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Smooch+Sans:wght@100..900&display=swap"
         rel="stylesheet">
     <style>
         body {
             background-color: #1f2937;
-            /* Updated background color */
             font-family: 'Poppins', sans-serif;
         }
 
@@ -20,7 +20,6 @@
         .container {
             display: flex;
             flex-direction: column;
-            /* Stack children vertically */
             height: 100vh;
             margin: 0px 5px;
         }
@@ -28,14 +27,11 @@
         /* Map container (top) */
         #map {
             height: calc(50% - 10px);
-            /* 50% of the height minus half the margin */
             border-radius: 8px;
             overflow: hidden;
             margin-bottom: 20px;
-            /* Space between map and info */
             border: 2px solid #2d3c59;
-            background-color: #222222;
-            /* Added border color */
+            background-color: #ebe7e7;
         }
 
         /* Info container (bottom) */
@@ -46,13 +42,14 @@
             align-items: center;
             width: 100%;
             height: calc(50% - 10px);
-            /* 50% of the height minus half the margin */
             background-color: #243047;
-            /* Updated background color */
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border: 2px solid #2d3c59;
-            /* Added border color */
+        }
+
+        .fixed-toolip {
+            transform: none !important;
         }
 
         /* Style for the tooltip labels */
@@ -60,55 +57,39 @@
             background: transparent;
             border: none;
             box-shadow: none;
-            color: white;
+            color: black;
             font-size: 10px;
             white-space: nowrap;
-            /* Prevent text from wrapping */
         }
 
         /* Style for the search bar and buttons */
         .search-container {
             display: flex;
             align-items: center;
-            /* Align items vertically in the center */
             gap: 10px;
-            /* Space between search bar and buttons */
             margin-bottom: 20px;
-            /* Space below the search container */
             position: relative;
-            /* Ensure dropdown is positioned relative to this container */
         }
 
         .search-bar {
             width: 250px;
-            /* Reduced width to fit the X button */
             padding: 10px;
-            /* py-2 (top/bottom) and pl-10 pr-4 (left/right) */
             background-color: #243047;
-            /* bg-[#243047] */
             border: 1px solid #2d3c59;
-            /* border border-[#2d3c59] */
             border-radius: 0.5rem;
-            /* rounded-lg */
             color: #f3f4f6;
-            /* text-gray-100 */
             font-size: 1rem;
-            /* Default font size */
             outline: none;
-            /* focus:outline-none */
             transition: all 0.3s ease;
         }
 
         .search-bar::placeholder {
             color: #9ca3af;
-            /* placeholder-gray-400 */
         }
 
         .search-bar:focus {
             border-color: transparent;
-            /* focus:border-transparent */
             box-shadow: 0 0 0 2px #3b82f6;
-            /* focus:ring-2 focus:ring-blue-500 */
         }
 
         .clear-button {
@@ -116,7 +97,6 @@
             border: 1px solid #2d3c59;
             border-radius: 5px;
             color: black;
-            /* Red color for the X button */
             font-size: 20px;
             cursor: pointer;
             padding: 7px;
@@ -127,23 +107,17 @@
 
         .autocomplete-dropdown {
             width: 250px;
-            /* Match the search bar width */
             max-height: 150px;
             overflow-y: auto;
             border: 1px solid #ccc;
             border-radius: 5px;
             background-color: #1f2937;
-            /* Updated background color */
             position: absolute;
             z-index: 1000;
             margin-top: 5px;
-            /* Add a small margin to separate it from the search bar */
             top: 100%;
-            /* Position it below the search bar */
             left: 0;
-            /* Align it with the left edge of the search bar */
             color: white;
-            /* Text color for better contrast */
         }
 
         .autocomplete-item {
@@ -153,7 +127,6 @@
 
         .autocomplete-item:hover {
             background-color: #2d3c59;
-            /* Updated hover background color */
         }
     </style>
 </head>
@@ -175,13 +148,19 @@
     </div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
     <script>
         // Initialize the map with restricted zoom levels
         var map = L.map('map', {
             attributionControl: false,
-            minZoom: 17.4, // Minimum zoom level
-            maxZoom: 20  // Maximum zoom level
+            center: [11.1098026, 75.8881775],
+            zoom: 13,
+            minZoom: 18,
+            maxZoom: 21
         });
+
+        // Variable to store the original maxBounds
+        let originalMaxBounds = null;
 
         // Function to load and add a GeoJSON layer to the map
         function addGeoJSONLayer(url, style, labelProperty) {
@@ -189,19 +168,18 @@
                 .then(response => response.json())
                 .then(data => {
                     var layer = L.geoJSON(data, {
-                        style: style, // Apply custom style
+                        style: style,
                         onEachFeature: function (feature, layer) {
                             if (labelProperty && feature.properties[labelProperty]) {
-                                // Bind a permanent tooltip as a label
                                 layer.bindTooltip(feature.properties[labelProperty], {
-                                    permanent: true, // Make the label permanent
-                                    direction: 'center', // Center the label on the shape
-                                    className: 'leaflet-tooltip' // Apply custom styling
+                                    permanent: true,
+                                    direction: 'center',
+                                    className: 'leaflet-tooltip'
                                 });
                             }
                         }
                     }).addTo(map);
-                    return layer; // Return the layer to calculate bounds later
+                    return layer;
                 })
                 .catch(error => console.error('Error loading GeoJSON:', error));
         }
@@ -215,29 +193,33 @@
 
         // Load all GeoJSON files and add them to the map
         Promise.all([
-            addGeoJSONLayer('auditorium.geojson', { color: '#90d5ff', fillColor: '#90d5ff', weight: 1 }, 'name'),
-            addGeoJSONLayer('blocks.geojson', { color: '#e8e9ed', weight: 1 }, 'name'),
-            // addGeoJSONLayer('border.geojson', { color: 'white', weight: 1 }, 'name'),
-            addGeoJSONLayer('ground.geojson', {
-                color: '#7ce87c',
-                weight: 0,
-                fillColor: '#7ce87c',
+            addGeoJSONLayer('geojson/auditorium.geojson', { color: '#635382', fillColor: '#cbcdd2', weight: 1, }, 'name'),
+            addGeoJSONLayer('geojson/entrance.geojson', { color: '#635382', fillColor: '#635382', weight: 1, fillOpacity: 1, }, 'name').then(layer => {
+                groundLayer = layer;
+            }),
+            addGeoJSONLayer('geojson/blocks.geojson', { color: '#635382', fillColor: '#cbcdd2', weight: 1 }, 'name'),
+            addGeoJSONLayer('geojson/ground.geojson', {
+                color: '#635382',
+                weight: 1,
+                fillColor: '#cbcdd2',
                 opacity: 1
             }, 'name').then(layer => {
-                groundLayer = layer; // Store ground layer for reference
+                groundLayer = layer;
             }),
-            addGeoJSONLayer('inroad.geojson', {
-                color: '#aab9c9', // Gray color for the road (similar to Google Maps)
-                weight: 5,        // Slightly thicker line to resemble a road
-                opacity: 1,       // Fully opaque
-                dashArray: null,  // Remove dashes to make it a solid line
-                lineJoin: 'round', // Smooth corners for the path
-                lineCap: 'round'  // Smooth ends for the path
+            addGeoJSONLayer('geojson/inroad.geojson', {
+                color: '#7b8c9c',
+                fillColor: '#cbcdd2',
+                weight: 2.5,
+                opacity: 1,
+                dashArray: null,
+                lineJoin: 'round',
+                lineCap: 'round'
             }, 'name').then(layer => {
-                inroadLayer = layer; // Store inroad layer for dynamic styling
-            })
+                inroadLayer = layer;
+            }),
+
         ]).then(loadedLayers => {
-            layers = loadedLayers.filter(layer => layer); // Filter out any undefined layers
+            layers = loadedLayers.filter(layer => layer);
 
             // Calculate the combined bounds of all GeoJSON layers
             var geoJSONBounds = L.latLngBounds();
@@ -246,34 +228,29 @@
             });
 
             // Add a small offset (e.g., 5% padding) to the bounds
-            geoJSONBounds = geoJSONBounds.pad(0.05); // 0.05 means 5% padding
+            geoJSONBounds = geoJSONBounds.pad(.5);
 
             // Set the map view to the combined bounds with padding
             map.fitBounds(geoJSONBounds);
 
             // Restrict panning to the padded bounds
             map.setMaxBounds(geoJSONBounds);
+
+            // Store the original maxBounds
+            originalMaxBounds = geoJSONBounds;
         });
 
         // Function to update layer styles based on zoom level
         function updateLayerStyles() {
             const zoom = map.getZoom();
-            const baseWeight = 10; // Base thickness at the highest zoom level
-            const adjustedWeight = baseWeight / Math.pow(2, 20 - zoom); // Adjust weight based on zoom
+            const baseWeight = 10;
+            const adjustedWeight = baseWeight / Math.pow(2, 20 - zoom);
 
-            // Update inroad layer style only
             if (inroadLayer) {
                 inroadLayer.setStyle({
-                    weight: adjustedWeight // Adjust this value to change the thickness
+                    weight: adjustedWeight
                 });
             }
-
-            // Remove or comment out the ground layer styling logic
-            // if (groundLayer) {
-            //     groundLayer.setStyle({
-            //         weight: adjustedWeight / 2 // Adjust as needed
-            //     });
-            // }
         }
 
         // Listen for zoom events to update layer styles
@@ -285,38 +262,29 @@
         // Variable to store the current marker
         let currentMarker = null;
 
-        // Variable to store the original bounds
-        let originalBounds = null;
-
         // Array to store program names for autocomplete
         let programNames = [];
 
         // Fetch program names from details.json
-        fetch('details.json')
+        fetch('data/details.json')
             .then(response => response.json())
             .then(data => {
-                programNames = data.programs.map(program => program.name);
+                programNames = data.programs.map(program => program.program);
             })
             .catch(error => console.error('Error loading program names:', error));
 
         // Function to display autocomplete suggestions
         function showAutocompleteSuggestions(input) {
             const dropdown = document.getElementById('autocomplete-dropdown');
-            dropdown.innerHTML = ''; // Clear previous suggestions
+            dropdown.innerHTML = '';
 
-            if (input.length === 0) {
-                dropdown.style.display = 'none';
-                return;
-            }
+            // Show everything when input is empty
+            const filteredPrograms = input.length === 0
+                ? programNames
+                : programNames.filter(name => name.toLowerCase().startsWith(input.toLowerCase()));
 
-            // Filter program names that match the input
-            const suggestions = programNames.filter(name =>
-                name.toLowerCase().includes(input.toLowerCase())
-            );
-
-            if (suggestions.length > 0) {
-                // Display suggestions in the dropdown
-                suggestions.forEach(suggestion => {
+            if (filteredPrograms.length > 0) {
+                filteredPrograms.forEach(suggestion => {
                     const item = document.createElement('div');
                     item.className = 'autocomplete-item';
                     item.textContent = suggestion;
@@ -333,99 +301,89 @@
             }
         }
 
+        // Hide dropdown when clicking outside
+        document.addEventListener('click', function (event) {
+            const searchBar = document.getElementById('search-bar');
+            const dropdown = document.getElementById('autocomplete-dropdown');
+
+            if (!searchBar.contains(event.target) && !dropdown.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+
+        // Trigger dropdown on focus
+        document.getElementById('search-bar').addEventListener('focus', function () {
+            showAutocompleteSuggestions('');
+        });
+
         // Function to fetch and display program location
         async function searchProgram() {
             const searchTerm = document.getElementById('search-bar').value.trim().toLowerCase();
 
-            // Clear existing marker
             if (currentMarker) {
                 map.removeLayer(currentMarker);
                 currentMarker = null;
             }
 
-            // Fetch details.json
-            const detailsResponse = await fetch('details.json');
-            const detailsData = await detailsResponse.json();
+            try {
+                const detailsResponse = await fetch('data/details.json');
+                const detailsData = await detailsResponse.json();
 
-            // Find the program in details.json
-            const program = detailsData.programs.find(p => p.name.toLowerCase() === searchTerm);
+                const program = detailsData.programs.find(p => p.program.toLowerCase() === searchTerm);
 
-            if (!program) {
-                alert('Program not found!');
-                return;
-            }
+                if (!program) {
+                    alert(`Program '${searchTerm}' not found!`);
+                    console.error(`Program '${searchTerm}' does not exist in details.json`);
+                    return;
+                }
 
-            // Fetch centres.json
-            const centresResponse = await fetch('centres.json');
-            const centresData = await centresResponse.json();
+                const centresResponse = await fetch('data/centres.json');
+                const centresData = await centresResponse.json();
 
-            // Find the location in centres.json
-            const location = centresData.locations.find(l => l.name === program.venue);
+                // Normalize building names for comparison
+                const normalizeName = (name) => name.toLowerCase().replace(/[-\s]/g, '');
 
-            if (!location) {
-                alert('Location not found!');
-                return;
-            }
+                const location = centresData.locations.find(l =>
+                    normalizeName(l.name) === normalizeName(program.building)
+                );
 
-            // Display a popup on the map at the location's coordinates
-            const { latitude, longitude } = location;
-            const popupContent = `
-                <strong>${program.name}</strong><br>
-                Venue: ${program.venue}<br>
-                Day: ${program.day}<br>
-                Room: ${program.room}<br>
-                Time: ${program.time}
-            `;
+                if (!location) {
+                    alert(`Location '${program.building}' not found!`);
+                    console.error(`Building '${program.building}' is missing in centres.json`);
+                    return;
+                }
 
-            currentMarker = L.marker([latitude, longitude])
-                .addTo(map)
-                .bindPopup(popupContent)
-                .openPopup();
+                const { latitude, longitude } = location;
+                const popupContent = `
+                    <strong>${program.program} : ${program.day}</strong><br>
+                    Building: ${program.building}<br>
+                    Room:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Name: ${program.roomName}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;No: ${program.roomNo}<br>
+                    Time: ${program.time}
+                `;
 
-            // Disable setMaxBounds temporarily
-            originalBounds = map.getBounds(); // Store the original bounds
-            map.setMaxBounds(null); // Disable bounds restriction
+                currentMarker = L.marker([latitude, longitude])
+                    .addTo(map)
+                    .bindPopup(popupContent)
+                    .openPopup();
 
-            // Ensure the popup is fully visible
-            ensurePopupVisible(currentMarker);
-
-            // Add event listener to re-enable bounds when the popup is closed
-            currentMarker.on('popupclose', () => {
-                map.removeLayer(currentMarker); // Remove the marker
-                currentMarker = null;
-                map.setMaxBounds(originalBounds); // Re-enable bounds restriction
-            });
-        }
-
-        // Function to ensure the popup is fully visible
-        function ensurePopupVisible(marker) {
-            const popup = marker.getPopup();
-            const popupBounds = popup.getElement().getBoundingClientRect();
-            const mapBounds = map.getContainer().getBoundingClientRect();
-
-            // Calculate the offset needed to make the popup fully visible
-            const offsetX = Math.max(0, popupBounds.right - mapBounds.right);
-            const offsetY = Math.max(0, popupBounds.bottom - mapBounds.bottom);
-
-            if (offsetX > 0 || offsetY > 0) {
-                // Adjust the map's view to make the popup fully visible
-                const markerLatLng = marker.getLatLng();
-                const newCenter = map.latLngToContainerPoint(markerLatLng)
-                    .subtract([offsetX / 2, offsetY / 2]); // Adjust the center
-
-                // Use `setView` instead of `panTo` to ensure the map stays in the new position
-                map.setView(map.containerPointToLatLng(newCenter), { animate: true });
+                // Center the map on the marker
+                map.setView([latitude, longitude], Math.max(map.getZoom(), 18), { animate: true });
+            } catch (error) {
+                console.error("Error fetching data:", error);
+                alert("Error loading program details. Check console for details.");
             }
         }
 
         // Function to clear the search
         function clearSearch() {
-            document.getElementById('search-bar').value = ''; // Clear the search bar
+            document.getElementById('search-bar').value = '';
             if (currentMarker) {
-                map.removeLayer(currentMarker); // Remove the marker
+                map.removeLayer(currentMarker);
                 currentMarker = null;
             }
-            document.getElementById('autocomplete-dropdown').style.display = 'none'; // Hide dropdown
+            document.getElementById('autocomplete-dropdown').style.display = 'none';
         }
 
         // Add event listeners
@@ -438,6 +396,24 @@
                 searchProgram();
             }
         });
+
+        // Add Leaflet.Locatecontrol
+        L.control.locate({
+            position: 'topright', // Position of the control
+            drawCircle: false, // Draw an accuracy circle
+            follow: true, // Follow the user's location
+            setView: 'always', // Always center the map on the user's location
+            keepCurrentZoomLevel: false, // Zoom to the user's location
+            markerClass: L.circleMarker, // Use a circle marker
+            locateOptions: {
+                enableHighAccuracy: true, // Use high accuracy
+                maxZoom: 18, // Maximum zoom level when centering on the user
+            },
+            strings: {
+                title: "Show My Location", // Title of the control
+                popup: "You are here!", // Popup text
+            }
+        }).addTo(map);
     </script>
 </body>
 

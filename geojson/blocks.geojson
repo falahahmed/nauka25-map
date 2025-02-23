@@ -12,7 +12,7 @@
             "type": "Feature",
             "properties": {
                 "osm_way_id": "1361521514",
-                "name": "CT Block",
+                "name": "Admin Block",
                 "building": "yes",
                 "landuse": null,
                 "other_tags": "\"building:levels\"=>\"3\""
@@ -73,7 +73,7 @@
             "type": "Feature",
             "properties": {
                 "osm_way_id": "1361521515",
-                "name": "Old Block",
+                "name": "H Block",
                 "building": "yes",
                 "landuse": null,
                 "other_tags": "\"building:levels\"=>\"2\",\"description\"=>\"Old Block\""
@@ -249,7 +249,7 @@
             "type": "Feature",
             "properties": {
                 "osm_way_id": "1361521518",
-                "name": "EL EC Block",
+                "name": "NH Block",
                 "building": "yes",
                 "landuse": null,
                 "other_tags": null,
