@@ -129,6 +129,22 @@
             background-color: #2d3c59;
         }
 
+        .schedule-button {
+            background-color: #3b82f6;
+            border: none;
+            border-radius: 0.5rem;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .schedule-button:hover {
+            background-color: #2563eb;
+        }
+
         /* Add this inside the <style> block */
         @media (max-width: 768px) {
             .search-bar {
@@ -156,6 +172,11 @@
                 <input type="text" class="search-bar" id="search-bar" placeholder="Search for a program...">
                 <button class="clear-button" id="clear-button">×</button>
                 <div class="autocomplete-dropdown" id="autocomplete-dropdown" style="display: none;"></div>
+            </div>
+            <div>
+                <a href="https://naukafest.tech/schedule" target="_blank">
+                    <button class="schedule-button">Schedule</button>
+                </a>
             </div>
         </div>
     </div>
