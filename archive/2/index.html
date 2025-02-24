@@ -128,19 +128,6 @@
         .autocomplete-item:hover {
             background-color: #2d3c59;
         }
-
-        /* Add this inside the <style> block */
-        @media (max-width: 768px) {
-            .search-bar {
-                width: 100%;
-                /* Full width on mobile */
-            }
-
-            .autocomplete-dropdown {
-                width: 100%;
-                /* Full width on mobile */
-            }
-        }
     </style>
 </head>
 
@@ -286,20 +273,6 @@
             })
             .catch(error => console.error('Error loading program names:', error));
 
-        // Add the debounce function before the event listeners
-        function debounce(func, delay) {
-            let timeout;
-            return function (...args) {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(this, args), delay);
-            };
-        }
-
-        // Update the event listener for the search input
-        document.getElementById('search-bar').addEventListener('input', debounce(function (e) {
-            showAutocompleteSuggestions(e.target.value);
-        }, 300));
-
         // Function to display autocomplete suggestions
         function showAutocompleteSuggestions(input) {
             const dropdown = document.getElementById('autocomplete-dropdown');
@@ -308,7 +281,7 @@
             // Show everything when input is empty
             const filteredPrograms = input.length === 0
                 ? programNames
-                : programNames.filter(name => name.toLowerCase().includes(input.toLowerCase()));
+                : programNames.filter(name => name.toLowerCase().startsWith(input.toLowerCase()));
 
             if (filteredPrograms.length > 0) {
                 filteredPrograms.forEach(suggestion => {
@@ -356,14 +329,11 @@
                 const detailsResponse = await fetch('data/details.json');
                 const detailsData = await detailsResponse.json();
 
-                // Search for programs that contain the search term anywhere in the name
-                const matchingPrograms = detailsData.programs.filter(p =>
-                    p.program.toLowerCase().includes(searchTerm) // Matches any part of the program name
-                );
+                const program = detailsData.programs.find(p => p.program.toLowerCase() === searchTerm);
 
-                if (matchingPrograms.length === 0) {
-                    alert(`No programs found containing '${searchTerm}'!`);
-                    console.error(`No programs found containing '${searchTerm}' in details.json`);
+                if (!program) {
+                    alert(`Program '${searchTerm}' not found!`);
+                    console.error(`Program '${searchTerm}' does not exist in details.json`);
                     return;
                 }
 
@@ -373,57 +343,48 @@
                 // Normalize building names for comparison
                 const normalizeName = (name) => name.toLowerCase().replace(/[-\s]/g, '');
 
-                // Loop through all matching programs and add markers for each
-                for (const program of matchingPrograms) {
-                    const location = centresData.locations.find(l =>
-                        normalizeName(l.name) === normalizeName(program.building)
-                    );
+                const location = centresData.locations.find(l =>
+                    normalizeName(l.name) === normalizeName(program.building)
+                );
 
-                    if (!location) {
-                        console.error(`Building '${program.building}' is missing in centres.json`);
-                        continue; // Skip this program if the building is not found
-                    }
-
-                    const { latitude, longitude } = location;
-                    const popupContent = `
-                <strong>${program.program} : ${program.day}</strong><br>
-                Building: ${program.building}<br>
-                Room:<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;NO: ${program.roomNo}<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;Name: ${program.roomName}<br>
-                Time: ${program.time}
-            `;
-
-                    const marker = L.marker([latitude, longitude])
-                        .addTo(map)
-                        .bindPopup(popupContent);
-
-                    // Center the map on the first matching marker
-                    if (!currentMarker) {
-                        currentMarker = marker;
-                        marker.openPopup();
-                        map.setView([latitude, longitude], Math.max(map.getZoom(), 18), { animate: true });
-                    }
+                if (!location) {
+                    alert(`Location '${program.building}' not found!`);
+                    console.error(`Building '${program.building}' is missing in centres.json`);
+                    return;
                 }
+
+                const { latitude, longitude } = location;
+                const popupContent = `
+                    <strong>${program.program} : ${program.day}</strong><br>
+                    Building: ${program.building}<br>
+                    Room:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;Name: ${program.roomName}<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;No: ${program.roomNo}<br>
+                    Time: ${program.time}
+                `;
+
+                currentMarker = L.marker([latitude, longitude])
+                    .addTo(map)
+                    .bindPopup(popupContent)
+                    .openPopup();
+
+                // Center the map on the marker
+                map.setView([latitude, longitude], Math.max(map.getZoom(), 18), { animate: true });
             } catch (error) {
                 console.error("Error fetching data:", error);
                 alert("Error loading program details. Check console for details.");
             }
         }
 
+        // Function to clear the search
         function clearSearch() {
             document.getElementById('search-bar').value = '';
             if (currentMarker) {
                 map.removeLayer(currentMarker);
                 currentMarker = null;
             }
-            document.getElementById('autocomplete-dropdown').style.display = 'none'; // Hide dropdown
+            document.getElementById('autocomplete-dropdown').style.display = 'none';
         }
-
-        // Ensure dropdown is scrollable on mobile
-        const dropdown = document.getElementById('autocomplete-dropdown');
-        dropdown.style.overflowY = 'auto';
-        dropdown.style.maxHeight = '150px'; // Adjust based on your needs
 
         // Add event listeners
         document.getElementById('clear-button').addEventListener('click', clearSearch);

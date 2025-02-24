@@ -22,7 +22,7 @@
             "building": "Admin Block",
             "roomNo": "A004",
             "roomName": "Infront of Library Hall",
-            "time": "09:15 – 10:00"
+            "time": "10:00 – 03:00"
         },
         {
             "day": "Day 1",
@@ -53,7 +53,7 @@
             "program": "Company 4 Interview",
             "building": "Admin Block",
             "roomNo": "A102",
-            "roomName": "1st Floor CT Class Room",
+            "roomName": "CT Class Room",
             "time": "10:00 – 03:00"
         },
         {
@@ -61,7 +61,7 @@
             "program": "Company 5 Interview",
             "building": "Admin Block",
             "roomNo": "A103",
-            "roomName": "1st Floor CT Class Room",
+            "roomName": "CT Class Room",
             "time": "10:00 – 03:00"
         },
         {
@@ -69,7 +69,7 @@
             "program": "Company 6 Interview",
             "building": "Admin Block",
             "roomNo": "A105a",
-            "roomName": "1st Floor CT Class Room",
+            "roomName": "CT Class Room",
             "time": "10:00 – 03:00"
         },
         {
@@ -77,7 +77,7 @@
             "program": "Company 7 Interview",
             "building": "Admin Block",
             "roomNo": "A105b",
-            "roomName": "1st Floor CT Class Room",
+            "roomName": "CT Class Room",
             "time": "10:00 – 03:00"
         },
         {
@@ -85,7 +85,7 @@
             "program": "Company 8 Interview",
             "building": "Admin Block",
             "roomNo": "A202",
-            "roomName": "2nd Floor CT Class Room",
+            "roomName": "CT Class Room",
             "time": "10:00 – 03:00"
         },
         {
@@ -93,7 +93,7 @@
             "program": "Company 9 Interview",
             "building": "Admin Block",
             "roomNo": "A203",
-            "roomName": "2nd Floor CT Class Room",
+            "roomName": "CT Class Room",
             "time": "10:00 – 03:00"
         },
         {
@@ -101,7 +101,7 @@
             "program": "KKEM Group Discussion",
             "building": "Admin Block",
             "roomNo": "A204",
-            "roomName": "2nd Floor Computer Lab",
+            "roomName": "Computer Lab",
             "time": "10:00 – 03:00"
         },
         {
@@ -274,7 +274,7 @@
         },
         {
             "day": "Day 2",
-            "program": "EL Stall",
+            "program": "Department Stall Evaluation",
             "building": "H Block",
             "roomNo": "H001",
             "roomName": "Old Computer Staff room",
@@ -282,7 +282,7 @@
         },
         {
             "day": "Day 2",
-            "program": "EC Stall",
+            "program": "Department Stall Evaluation",
             "building": "H Block",
             "roomNo": "H003",
             "roomName": "Old Block",
@@ -290,14 +290,14 @@
         },
         {
             "day": "Day 2",
-            "program": "CT Stall",
+            "program": "Department Stall Evaluation",
             "building": "H Block",
             "roomNo": "H004",
             "roomName": "Old Block",
             "time": "10:30 – 12:15"
         },
         {
-            "day": "Day 1 & 2",
+            "day": "Day 1",
             "program": "HAM - Amateur Radio",
             "building": "Admin Block",
             "roomNo": "A002",
@@ -305,7 +305,7 @@
             "time": "9:30AM – 4:30PM"
         },
         {
-            "day": "Day 1 & 2",
+            "day": "Day 1",
             "program": "KSEB",
             "building": "Admin Block",
             "roomNo": "A007",
@@ -313,7 +313,7 @@
             "time": "9:30AM – 4:30PM"
         },
         {
-            "day": "Day 1 & 2",
+            "day": "Day 1",
             "program": "BSNL",
             "building": "Admin Block",
             "roomNo": "A101",
@@ -321,7 +321,7 @@
             "time": "9:30AM – 4:30PM"
         },
         {
-            "day": "Day 1 & 2",
+            "day": "Day 1",
             "program": "FOREST",
             "building": "Infront of Admin Block",
             "roomNo": "",
@@ -329,7 +329,7 @@
             "time": "9:30AM – 4:30PM"
         },
         {
-            "day": "Day 1 & 2",
+            "day": "Day 1",
             "program": "NSS",
             "building": "H Block",
             "roomNo": "",
@@ -337,7 +337,7 @@
             "time": "9:30AM – 4:30PM"
         },
         {
-            "day": "Day 1 & 2",
+            "day": "Day 1",
             "program": "NCC",
             "building": "H Block",
             "roomNo": "OG4",
@@ -345,7 +345,7 @@
             "time": "9:30AM – 4:30PM"
         },
         {
-            "day": "Day 1 & 2",
+            "day": "Day 1",
             "program": "GIFD",
             "building": "H Block",
             "roomNo": "",
@@ -353,7 +353,7 @@
             "time": "9:30AM – 4:30PM"
         },
         {
-            "day": "Day 1 & 2",
+            "day": "Day 1",
             "program": "Industry On Campus (IOC)",
             "building": "H Block",
             "roomNo": "",
@@ -361,20 +361,12 @@
             "time": "9:30AM – 4:30PM"
         },
         {
-            "day": "Day 2",
-            "program": "Fashion Show(Attire Spectra)",
+            "day": "Day 1",
+            "program": "Fashion Show and Musical Event",
             "building": "Auditorium",
             "roomNo": "",
             "roomName": "College Auditorium",
-            "time": "10:00AM – 3:00PM"
-        },
-        {
-            "day": "Day 2",
-            "program": "Musical Live",
-            "building": "Auditorium",
-            "roomNo": "",
-            "roomName": "College Auditorium",
-            "time": "3:45AM – 5:30PM"
+            "time": "9:30AM – 6:00PM"
         }
     ]
 }

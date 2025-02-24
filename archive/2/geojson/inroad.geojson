@@ -1,0 +1,19 @@
+{
+"type": "FeatureCollection",
+"name": "inroad",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.887618226016798, 11.110627496235812 ], [ 75.888777391291967, 11.110364509347999 ], [ 75.888711737377434, 11.110256814418651 ], [ 75.888674669195723, 11.110097730138788 ], [ 75.888674669195723, 11.110097730138788 ], [ 75.888674669195723, 11.110097730138788 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.888674765727458, 11.110097826670513 ], [ 75.888648122971844, 11.110104390827692 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.888504483767704, 11.110177851469063 ], [ 75.888562137002751, 11.110413313353247 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.888474377936504, 11.110052444694222 ], [ 75.888428042709378, 11.109883321115188 ], [ 75.888286720266592, 11.109914211266613 ], [ 75.88817010994498, 11.109896449429545 ], [ 75.888071261460425, 11.10983853039563 ], [ 75.888046549339293, 11.109762849524646 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.887709846688807, 11.108946577273327 ], [ 75.887706757673669, 11.109104117045579 ], [ 75.887963145930456, 11.109913439012828 ], [ 75.888103696119416, 11.109919617043113 ], [ 75.888224167709964, 11.110046266663943 ], [ 75.888320956312981, 11.110468028764 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.88807135799216, 11.109838675193213 ], [ 75.888103694611161, 11.109919615534801 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.887932059699224, 11.109814214959645 ], [ 75.887785331480117, 11.109855916664024 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.887672582427498, 11.110610408611791 ], [ 75.887583000988457, 11.11023663777994 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.888711737351954, 11.110256814617571 ], [ 75.888750731794303, 11.110225150469041 ], [ 75.88882295063307, 11.11024843413837 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.887687255249432, 11.109282132101914 ], [ 75.887757313147475, 11.109263839340391 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.888002560142525, 11.110518844427169 ], [ 75.888008070740085, 11.11053901217648 ] ] } },
+{ "type": "Feature", "properties": { "osm_id": null, "highway": null, "z_order": null }, "geometry": { "type": "LineString", "coordinates": [ [ 75.888777414565226, 11.11036455589451 ], [ 75.888792102746095, 11.110410617866057 ] ] } }
+]
+}
